@@ -1,6 +1,6 @@
-const data = [
+const uncombined_data = [
     {
-        action: "install fedora development tools",
+        action: "set up workspace",
         time: 3,
         prod: true
     },
@@ -30,7 +30,7 @@ const data = [
         prod: false
     },
     {
-        action: "install fedora c development tools",
+        action: "set up workspace",
         time: 3,
         prod: true
     },
@@ -165,13 +165,138 @@ const data = [
         prod: true
     },
     {
-        action: "notion.so",
+        action: "notion",
         time: 3,
         prod: true
     },
     {
         action: "vscode",
         time: .5,
+        prod: true
+    },
+    {
+        action: "zoom",
+        time: 1,
+        prod: true
+    },
+    {
+        action: "mysql workbench",
+        time: 2,
+        prod: true
+    },
+    {
+        action: "mail",
+        time: 8,
+        prod: true
+    },
+    {
+        action: "vscode",
+        time: 8,
+        prod: true
+    },
+    {
+        action: "debug",
+        time: 1,
+        prod: true
+    },
+    {
+        action: "vscode",
+        time: 1,
+        prod: true
+    },
+    {
+        action: "zoom",
+        time: 4,
+        prod: true
+    },
+    {
+        action: "vscode",
+        time: 19,
+        prod: true
+    },
+    {
+        action: "zoom",
+        time: 7,
+        prod: true
+    },
+    {
+        action: "vscode",
+        time: 3,
+        prod: true
+    },
+    
+  ]
+
+
+  const combined_data = [
+    {
+        action: "shopping",
+        time: 3,
+        prod: false
+    },
+    {
+        action: "email",
+        time: 11,
+        prod: true
+    },
+    {
+        action: "edfinancial",
+        time: 2,
+        prod: true
+    },
+    {
+        action: "set up workspace",
+        time: 83.5,
+        prod: true
+    },
+    {
+        action: "youtube",
+        time: 33,
+        prod: false
+    },
+    {
+        action: "vscode",
+        time: 95.5,
+        prod: true
+    },
+    {
+        action: "debug",
+        time: 3,
+        prod: true
+    },
+    {
+        action: "mysql workbench",
+        time: 35,
+        prod: true
+    },
+    {
+        action: "canvas",
+        time: 6,
+        prod: true
+    },
+    {
+        action: "github",
+        time: 2,
+        prod: true
+    },
+    {
+        action: "google",
+        time: 5,
+        prod: true
+    },
+    {
+        action: "slack",
+        time: 1,
+        prod: true
+    },
+    {
+        action: "notion",
+        time: 3,
+        prod: true
+    },
+    {
+        action: "zoom",
+        time: 12,
         prod: true
     },
     
