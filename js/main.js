@@ -107,17 +107,27 @@ var ctx = document.getElementById('chart01').getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-      labels: ["Productive", "Not Productive"],
+      labels: getAction(),
       datasets: [{
         backgroundColor: [
-          "#2ecc71",
-          "#3498db",
+          "#094074",
+          "#3c6997",
+          "#5adbff",
+          "#ffdd4a",
+          "#fe9000",
+          "#020887",
+          "#95b2b0",
+          "#c6ebbe",
+          "#ffffff",
+          "#363732",
+          "#f1a40a",
+          "#e74c3b",
+          "#34495f",
         ],
-        data: [getTotalProd(), getTotalNProd()]
+        data: getTime()
       }]
     }
   });
-  
 
 function getTotal(){
   var temp = 0;
