@@ -90,44 +90,79 @@ function getProd(){
   return temp;
 }
 
-var ctx = document.getElementById('chart01').getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: getAction(),
-      datasets: [{
-        label: 'Time',
-        data: getTime(),
-        backgroundColor: "rgba(153,255,51,0.4)"
-      }]
-    }
-  });
+function sortData (sortby) {
+  var sData = data;
+  if (sortby == 'time'){
+    return sData = data.sort(function(a, b){return a.time < b.time});
+  }
+  else if (sortby == 'prod'){
+    return sData = data.sort(function(a){return a.prod == true});
+  }
+  else{
+    return sData = data.sort(function (a, b) {return ('' + a.action).localeCompare(b.action); });
+  }
+  
+}
 
-  var ctx = document.getElementById("chart02").getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: getAction(),
-      datasets: [{
-        backgroundColor: [
-          "#094074",
-          "#3c6997",
-          "#5adbff",
-          "#ffdd4a",
-          "#fe9000",
-          "#020887",
-          "#95b2b0",
-          "#c6ebbe",
-          "#ffffff",
-          "#363732",
-          "#f1a40a",
-          "#e74c3b",
-          "#34495f",
-        ],
-        data: getTime()
-      }]
-    }
-  });
+var ctx = document.getElementById('chart01').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: getAction(),
+    datasets: [{
+      label: 'Time',
+      data: getTime(),
+      backgroundColor: "rgba(153,255,51,0.4)"
+    }]
+  }
+});
+
+function piechart(){
+  
+  var  pieChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: getAction(),
+        datasets: [{
+          backgroundColor: [
+            "#094074",
+            "#3c6997",
+            "#5adbff",
+            "#ffdd4a",
+            "#fe9000",
+            "#020887",
+            "#95b2b0",
+            "#c6ebbe",
+            "#ffffff",
+            "#363732",
+            "#f1a40a",
+            "#e74c3b",
+            "#34495f",
+          ],
+          data: getTime()
+        }]
+      }
+    });
+  }
+  function barchart(){
+  
+    var barChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: getAction(),
+          datasets: [{
+            label: 'Time',
+            data: getTime(),
+            backgroundColor: "rgba(153,255,51,0.4)"
+          }]
+        }
+      });
+    
+  }
+
+document.getElementById("chartBtnP").addEventListener("click", piechart()); 
+document.getElementById("chartBtnB").addEventListener("click", barchart()); 
+
 
 function getTotal(){
   var temp = 0;
@@ -170,27 +205,47 @@ addnProd.innerHTML = getTotalNProd() + " min";
 
 var addTable = document.getElementById('data-table');
 
-var html = `
-<h4>Activities of Work Day</h4>
-<table class="u-full-width">
-<thead>
-  <tr>
-    <th>Activity</th>
-    <th>Time Spent</th>
-    <th>Productive</th>
-  </tr>
-</thead>
-</tbody>
-`
-for(var i = 0; i < data.length; i++){
-  html += "<tr>"; 
-  html +=    "<td>"+data[i].action+"</td>"
-  html +=    "<td>"+data[i].time+"</td>"
-  html +=    "<td>"+data[i].prod+"</td>"
-  html +=    "</tr>";
-      
+
+sortedData = sortData('time');
+var leastprod = document.getElementById('lprod');
+leastprod.innerHTML = sortedData[sortedData.length - 1].action;
+
+var mostprod = document.getElementById('mprod');
+mostprod.innerHTML = sortedData[0].action;
+
+
+
+
+function createtable(sortby){
+  tData = sortData(sortby);
+  var html = `
+  <table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>Time Spent</th>
+      <th>Productive</th>
+    </tr>
+  </thead>
+  </tbody>
+  `
+  for(var i = 0; i < tData.length; i++){
+    html += "<tr>"; 
+    html +=    "<td>"+tData[i].action+"</td>"
+    html +=    "<td>"+tData[i].time+"</td>"
+    html +=    "<td>"+tData[i].prod+"</td>"
+    html +=    "</tr>";
+        
+  }
+  
+  html += "</tbody></table>"
+  
+  addTable.innerHTML = html;
 }
 
-html += "</tbody></table>"
+document.getElementById("nameBtn").addEventListener("click", createtable());
+document.getElementById("timeBtn").addEventListener("click", createtable('time'));
+document.getElementById("prodBtn").addEventListener("click", createtable('prod'));
 
-addTable.innerHTML = html;
+createtable('time');
+

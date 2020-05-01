@@ -19,8 +19,10 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
+ 
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+            
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -31,42 +33,77 @@
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container u-full-width">
-    <h1>Miniproject 02</h1>
-
-    <div class="row">
-      <p>The 4 hour workday coincided with reinstalling the operating system on my computer. A lot of time was spent setiting up the workspace. There was also a project due that dayso the largest set of time was spenting working on the project. The 4 hours is not a clear representation of a normal day for me but it is a honest representation of the level of productivity when I am under pressure.</p>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Miniproject 02</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#Breakdown">Productivity Breakdown</a></li>
+        <li><a href="#ListAct">List of Activities</a></li>
+      </ul>
     </div>
-
+  </nav>
+  
+  <div class="container ">
+    
+    
     <div class="row">
-      <div class="one-third column"><h3 id="total">1234</h3><p>Time Spent Working</p></div>
-      <div class="one-third column"><h3 id="prod">1234</h3><p>Time Spent Productive</p></div>
-      <div class="one-third column"><h3 id="nprod">1234</h3><p>Time Spent Not Productive</p></div>
-    </div>
-
-
-
-    <div class="row">
-      <div class="one-half column">
-      <h4>Times of Actitivies In Work Day</h4>
+      <div class="col s12">
+      <h4>Activities In Work Day By Time</h4>
+      <button onclick="piechart()" id="chartBtnP"  class="waves-effect waves-light btn-small">Pie Chart</button> 
+      <button onclick="barchart()" id="chartBtnB"  class="waves-effect waves-light btn-small">Bar Chart</button> 
       </canvas><canvas id="chart01"></canvas>
       </div>
-      
-      <div class="one-half column">
-      <h4>Activities In Work Day By Time</h4>
-      </canvas><canvas id="chart02"></canvas>
-      
-      </div>
+    </div>
+    
+    <div class="row" id="Breakdown">
+      <div class="col s4"><h3 id="total">1234</h3><strong>Time Spent Working</strong></div>
+      <div class="col s4"><h3 id="prod">1234</h3><p>Time Spent Productive</p></div>
+      <div class="col s4"><h3 id="nprod">1234</h3><p>Time Spent Not Productive</p></div>
     </div>
 
-    <div class="row" id="data-table"></div>
+    <div class="row">
+      <div class="col s6"><h3 id="mprod">1234</h3><p>Most Productive Activity</p></div>
+      <div class="col s6"><h3 id="lprod">1234</h3><p>Least Productive Activity</p></div>
+    </div>
 
+ 
 
+    <div class="row" id="ListAct">
+      <h4>Activities of Work Day</h4>
+      <div> 
+        <button onclick="createtable('time')" id="timeBtn"  class="waves-effect waves-light btn-small">By Time</button> 
+        <button onclick="createtable('prod')" id="prodBtn" class="waves-effect waves-light btn-small">By Productivity</button> 
+        <button onclick="createtable('name')" id="nameBtn" class="waves-effect waves-light btn-small">By Name</button> 
+      </div>
+      <div id="data-table"></div>
+    </div>
+
+    
     
   </div>
 
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <p class="grey-text text-lighten-4">Productivity Tracker Project </p>
+          <p class="grey-text text-lighten-4">CPSC 4720</p>
+          <p class="grey-text text-lighten-4">May 1st, 2020</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2020 Damali Boyd
+      </div>
+    </div>
+  </footer>
+
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
   <script src="./js/main.js"></script>
 
