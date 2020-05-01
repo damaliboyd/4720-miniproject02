@@ -219,7 +219,7 @@ mostprod.innerHTML = sortedData[0].action;
 function createtable(sortby){
   tData = sortData(sortby);
   var html = `
-  <table class="u-full-width">
+  <table class="striped">
   <thead>
     <tr>
       <th>Activity</th>
@@ -232,7 +232,7 @@ function createtable(sortby){
   for(var i = 0; i < tData.length; i++){
     html += "<tr>"; 
     html +=    "<td>"+tData[i].action+"</td>"
-    html +=    "<td>"+tData[i].time+"</td>"
+    html +=    "<td>"+tData[i].time+" min </td>"
     html +=    "<td>"+tData[i].prod+"</td>"
     html +=    "</tr>";
         
